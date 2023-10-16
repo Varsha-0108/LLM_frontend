@@ -1,0 +1,118 @@
+
+.card {
+  border: 2px solid black;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: larger;
+  font-weight: 700;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#log {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+.input-container {
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.bt {
+  width: 100px;
+  background-color: grey;
+  border: 1.5px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#emailid,
+#password {
+  border: 1px solid black;
+  padding: 5px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.nav {
+  color: black;
+}
+
+#tm-nav.navbar
+{
+  position: fixed;
+
+top: 0;
+
+width: 100%;
+
+background-color: white; /* RGBA color with A=1 for full opacity */
+
+color: black;
+
+padding: 10px;
+
+z-index: 1000;
+opacity: 1;
+}
+
+.leftmost {
+  margin-right: auto;
+  padding-left: 10px;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+}
+
+
+
+
+
+
+.info1 {
+  color: black;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
+  font-weight: 700;
+}
+
+.heading {
+  color: red;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.image {
+  /* width: 100px;
+  height: 100px; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+} 

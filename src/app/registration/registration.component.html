@@ -1,0 +1,149 @@
+<br>
+<div id ="top">
+<nav id="tm-nav" class="navbar">
+
+  <ul class=" text-2xl font-normal flex  md:flex-row">
+
+    <img src="assets/img/prodapt.png" width="50" alt="profile picture" style="float: right;">
+    <li class="leftmost">License Central</li>
+    <li class="inline-block mb-4 mx-4"><a href="#about" class="nav">Home</a></li>
+    <li class="inline-block mb-4 mx-4"><a href="#services" class="nav">About</a></li>
+    <li class="inline-block mb-4 mx-4"><a href="#features" class="nav">Features</a></li>
+    <li class="inline-block mb-4 mx-4"><a routerLink="/login" class="nav">Login</a></li>
+    <li class="inline-block mb-4 mx-4"><a routerLink="/register" class="nav">Sign Up</a></li>
+  </ul>
+
+</nav>
+</div>
+<br>
+<br>
+<br>
+
+<div style = "overflow-y: auto; max-height: 80vh;">
+<div class="card"
+  style="border-radius: 20px; border-color: 4px solid black; width: 50%;
+      margin-left: 20rem; background-image: linear-gradient(to right, #383434, #483b3b, #594242, #6a4848, #7b4f4f, #895050, #985050, #a65050, #b44949, #c14140, #cd3837, #d82c2c);">
+
+
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <h1>New User?</h1>
+    <h1>REGISTER HERE</h1>
+    <img src="assets/img/reg5.png" alt="Avatar" class="image">
+    <br>
+
+
+    <!-- 1 Name -->
+    <div class="input-container1">
+      <div class="left">
+        <input type="text" placeholder="ENTER FIRST NAME" id="fname" name="ufname" formControlName="fname"
+          pattern="^[A-Z][a-zA-Z]*$" style="width: 260px; height: 40px; border-radius: 5px;  border: 1px solid black; text-align: center;">
+        <div *ngIf="regForm.get('fname')?.hasError('required') && regForm.get('fname')?.touched">
+          <small style="color: black; font-weight: bold;">*First Name is required</small>
+        </div>
+        <div *ngIf="regForm.get('fname')?.hasError('pattern') && regForm.get('fname')?.touched">
+          <small style="color: black; font-weight: bold; ">*First Name should begin with a capital letter</small>
+        </div>
+      </div>
+      <br>
+
+      <div class="right">
+        <!-- <label for="lname">Enter Last Name</label><br>  -->
+        <input type="text" id="lname" name="ulname" placeholder="ENTER LAST NAME" formControlName="lname"
+          pattern="^[A-Z][a-zA-Z]*$" style="width: 260px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+        <div *ngIf="regForm.get('lname')?.hasError('required') && regForm.get('lname')?.touched">
+          <small style="color: black; font-weight: bold; ">*Last Name is required</small>
+        </div>
+        <div *ngIf="regForm.get('lname')?.hasError('pattern') && regForm.get('lanme')?.touched">
+          <small style="color: black; font-weight: bold; ">*Last Name should begin with a capital letter</small>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- 2 system id -->
+    <div class="input-container1">
+      <!-- <label for="id">Enter System ID</label><br> -->
+      <div class="left">
+        <input type="text" id="id" name="uid" placeholder="ENTER SYSTEM ID" formControlName="id" pattern="^PRO\d+"
+          style="width: 260px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+        <div *ngIf="regForm.get('id')?.hasError('required') && regForm.get('id')?.touched">
+          <small style="color: black; font-weight: bold; ">*System ID is required</small>
+        </div>
+        <div *ngIf="regForm.get('id')?.hasError('pattern') && regForm.get('id')?.touched">
+          <small style="color: black; font-weight: bold; ">*System ID should be like PRO123</small>
+        </div>
+      </div>
+
+      <div class="right">
+        <input type="text" id="userid" name="uuid" placeholder="ENTER USER ID" formControlName="userid"
+          pattern="^PRODAPTNO\d+" style="width: 260px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+        <div *ngIf="regForm.get('userid')?.hasError('required') && regForm.get('userid')?.touched">
+          <small style="color: black; font-weight: bold; ">*User ID is required</small>
+        </div>
+        <div *ngIf="regForm.get('userid')?.hasError('pattern') && regForm.get('userid')?.touched">
+          <small style="color: black; font-weight: bold; ">*User ID should be like PRODAPTNO123</small>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- 3 email -->
+    <div class="input-container2">
+      <!-- <label for="email">Enter Email</label><br> -->
+      <input type="email" id="email" name="uemail" placeholder="ENTER EMAIL ID" formControlName="email"
+        pattern=".*@prodapt\.com" style="width: 450px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+      <div *ngIf="regForm.get('email')?.hasError('required') && regForm.get('email')?.touched">
+        <small style="color: black; font-weight: bold; ">*Email is required</small>
+      </div>
+      <div *ngIf="regForm.get('email')?.hasError('pattern') && regForm.get('email')?.touched">
+        <small style="color: black; font-weight: bold; ">*Email should be like varsha.s@prodapt.com</small>
+      </div>
+    </div>
+    <br>
+    <!-- 4 username -->
+    <div class="input-container2">
+      <!-- <label for="username">Enter Username</label><br> -->
+      <input type="text" id="username" name="uusername" placeholder="ENTER USERNAME" formControlName="username"
+        minlength="6" style="width: 450px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+      <div *ngIf="regForm.get('username')?.hasError('required') && regForm.get('username')?.touched">
+        <small style="color: black; font-weight: bold; ">*Username is required</small>
+      </div>
+      <div *ngIf="regForm.get('username')?.hasError('minlength') && regForm.get('username')?.touched">
+        <small style="color: black; font-weight: bold; ">*Username should have minimum 6 characters</small>
+      </div>
+    </div>
+    <br>
+    <!-- 5 password -->
+    <div class="input-container2">
+      <!-- <label for="password">Enter Password</label><br> -->
+      <input type="password" id="password" name="password" placeholder="ENTER PASSWORD" formControlName="password"
+        minlength="8" style="width: 450px; height: 40px; border-radius: 5px;  border: 1px solid black;text-align: center;">
+      <!-- pattern = "/^(?=.*[a-zA-Z])(?=.*\d)(?=.*_)*$"> -->
+      <div *ngIf="regForm.get('password')?.hasError('required')  && regForm.get('password')?.touched">
+        <small style="color: black; font-weight: bold; ">*Password is required</small>
+      </div>
+      <div *ngIf="regForm.get('password')?.hasError('minlength')  && regForm.get('password')?.touched">
+        <small style="color: black; font-weight: bold; ">*Password should have minimum 8 characters</small>
+      </div>
+    </div>
+
+    <br>
+    <div class="button-container">
+      <button type="submit" class="bt">Register</button>
+
+    </div>
+
+    <br>
+    <a [routerLink]="link" style="color:black; font-size: large; font-weight: 18px;margin-left: 9rem;"><u>Already have
+        an account? Login</u></a>
+
+
+
+    <br>
+
+  </form>
+
+</div>
+</div>

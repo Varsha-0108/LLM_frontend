@@ -1,0 +1,72 @@
+<br>
+
+<nav id="tm-nav" class="navbar">
+
+  <ul class=" text-2xl font-normal flex  md:flex-row">
+
+    <img src="assets/img/prodapt.png" width="50" alt="profile picture" style="float: right;">
+    <li class="leftmost">License Central</li>
+    <li class="inline-block mb-4 mx-4"><a href="#about" class="nav">Home</a></li>
+    <li class="inline-block mb-4 mx-4"><a href="#services" class="nav">About</a></li>
+    <li class="inline-block mb-4 mx-4"><a href="#features" class="nav">Features</a></li>
+    <li class="inline-block mb-4 mx-4"><a routerLink="/login" class="nav">Login</a></li>
+    <li class="inline-block mb-4 mx-4"><a routerLink="/register" class="nav">Sign Up</a></li>
+  </ul>
+
+</nav>
+<br>
+<br>
+<br>
+
+
+      <div class="card" style="border-radius: 20px; border-color: 4px solid black; 
+      margin-left: 25rem; background-image: linear-gradient(to right, #383434, #483b3b, #594242, #6a4848, #7b4f4f, #895050, #985050, #a65050, #b44949, #c14140, #cd3837, #d82c2c);">
+  
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h1>Already have an account?</h1>
+          <h1>LOGIN</h1>
+          <img src="assets/img/log1.png" alt="Avatar" class="image" >
+          <br>
+  
+          <!-- <div class="input-container">
+  
+            <input type="text" placeholder="ENTER USERNAME" id="username" name="uname" [(ngModel)]="user"
+              formControlName="username">
+            <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+              <small style="color: black;"><b>Username is required</b></small>
+            </div>
+          </div>
+          <br> -->
+
+          <div class="input-container">
+  
+            <input type="text" placeholder="ENTER EMAIL ID" id="emailid" name="uemail"
+              formControlName="email" style = "text-align: center;">
+            <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+              <small style="color: black;"><b>Email is required</b></small>
+            </div>
+          </div>
+          <br>
+  
+          <div class="input-container">
+  
+            <input type="password" placeholder="ENTER PASSWORD" id="password" name="pwd"
+              formControlName="password" style="text-align: center;">
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+              <small style="color: black;"><b>Password is required</b></small>
+            </div>
+          </div>
+          <br>
+          
+          <div class="button-container">
+            <button type="submit" class="bt">Login</button>
+          </div>
+          <!-- <a href=""  style="color:black; font-size: medium; font-weight: 18px;margin-left: 7rem;"><u>Forgot password?</u></a> -->
+  <br><a [routerLink] = "link" style="color:black; font-size: large; font-weight: 18px;margin-left: 1.5rem;"><u>Don't have an account? Register here</u></a>
+ <br>
+          
+  
+        </form>
+      </div>
+    
+   

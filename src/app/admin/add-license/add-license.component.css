@@ -1,0 +1,280 @@
+.card {
+  border: 2px solid black;
+  width: 400px;
+  height: 700px;
+  padding: 20px;
+  background-color: white;
+}
+
+.background-container {
+
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.background-container::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+
+#lid,
+#sname,
+#lname,
+#manufacturer,
+#validity {
+  border: 1px solid black;
+  padding: 5px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.my-button {
+  width: 200px;
+}
+
+.disabled-button {
+  background-color: grey;
+  color: #ccc;
+  cursor: not-allowed;
+  border: 1.5px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+
+.enabled-button {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+  border: 1.5px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+
+.text-danger {
+  color: crimson;
+}
+
+.nav {
+  color: black;
+}
+
+#tm-nav.navbar {
+  position: fixed;
+
+  top: 0;
+
+  width: 100%;
+
+  background-color: white;
+
+  color: black;
+
+  padding: 10px;
+
+  z-index: 1000;
+  opacity: 1;
+}
+
+.leftmost {
+  margin-right: auto;
+  padding-left: 10px;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+}
+
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 100px;
+  z-index: 1;
+  left: 44%;
+  transform: translateX(-50%);
+}
+
+.dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+li.navitem:hover .dropdown {
+  display: block;
+}
+
+.background-container {
+
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.background-container::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+.heading {
+  color: rgb(3, 40, 40);
+  font-size: 36px;
+  font-weight: 700;
+
+
+  text-align: center;
+  text-shadow: 0 0 10px rgb(211, 208, 46);
+}
+
+.info1 {
+  color: rgb(7, 2, 23);
+  font-family: cursive;
+  font-size: large;
+  font-weight: 700;
+}
+
+
+.dashboard {
+
+  background-color: #333;
+
+  color: #fff;
+
+  width: 270px;
+
+  height: 100%;
+
+  position: fixed;
+
+  top: 2;
+
+  left: 0;
+
+  padding: 20px;
+  opacity: 0.9;
+
+}
+
+
+
+.dashboard h2 {
+
+  margin-top: 0;
+
+}
+
+
+
+.dashboard ul {
+
+  list-style: none;
+
+  padding: 0;
+
+}
+
+
+
+.dashboard li {
+
+  margin-bottom: 10px;
+
+}
+
+
+
+.dashboard a {
+
+  color: #fff;
+
+  text-decoration: none;
+
+}
+
+
+
+.navitem1 {
+  text-align: center;
+  cursor: pointer;
+}
+
+.sub-items {
+  display: none;
+  list-style-type: none;
+}
+
+.navitem1:focus+.sub-items {
+  display: block;
+}
+
+
+
+.input-container {
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+
+.input-container2 {
+  margin-left: 3rem;
+}
+
+input::placeholder {
+  color: rgb(106, 103, 103);
+  text-align: center;
+}
+
+body {
+  min-height: 100%;
+}
+

@@ -1,0 +1,51 @@
+<br>
+<nav id="tm-nav" class="navbar">
+  <ul class=" text-2xl font-normal flex  md:flex-row">
+    <img src="assets/img/prodapt.png" width="50" alt="profile picture" style="float: right;">
+    <li class="leftmost">License Central</li>
+    <img src="assets/img/admin1.jpg" width="50" alt="profile picture" style="float: right;">
+  </ul>
+  <div class="background-container"></div>
+  <br>
+
+  <ul class="navbar1">
+    <li class="navitem"><a routerLink="/userhomepage">HOME</a></li>
+    <li class="navitem"><a routerLink="/available">AVAILABLE SOFTWARES</a></li>
+    <li class="navitem"><a routerLink="/logout">LOGOUT</a></li>
+  </ul>
+
+  <br>
+  <br>
+  <br>
+
+  <div style="overflow-y: auto; max-height: 50vh;">
+    <table class="center" style="background-color:white; margin-left: 1rem; margin-right: 1rem;
+   border: 1px solid black;">
+      <tr style="background-color: rgb(235, 23, 23);">
+        <th style="width: 4%;">LICENSE ID</th>
+        <th style="width: 8%;">APPLICATION NAME</th>
+        <th style="width: 5%;">APPLICATION VERSION</th>
+        <th style="width: 5%;">VENDOR</th>
+        <th style="width: 5%;">VALIDITY</th>
+        <th style="width: 5%;">ACTION</th>
+      </tr>
+
+      <tbody style="border: 1px solid black;">
+
+        <tr *ngFor="let license of licenceList">
+          <td>{{license.lid}}</td>
+          <td>{{license.sname}}</td>
+          <td>{{license.version}}</td>
+          <td>{{license.vendor}}</td>
+          <td>{{license.validity}}</td>
+          <td>
+            <br>
+            <button type="button" class="btn btn-dark custom-button"
+              (click)="requestLicense(license.lid)">Request</button><br><br>
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+  <router-outlet></router-outlet>
