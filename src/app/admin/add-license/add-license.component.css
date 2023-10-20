@@ -1,4 +1,5 @@
-.card {
+.card 
+{
   border: 2px solid black;
   width: 400px;
   height: 700px;
@@ -6,8 +7,8 @@
   background-color: white;
 }
 
-.background-container {
-
+.background-container 
+{
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,7 +20,8 @@
   z-index: -1;
 }
 
-.background-container::before {
+.background-container::before 
+{
   content: "";
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -29,14 +31,8 @@
   left: 0;
 }
 
-
-
-
-#lid,
-#sname,
-#lname,
-#manufacturer,
-#validity {
+#lid, #sname, #lname, #manufacturer, #validity 
+{
   border: 1px solid black;
   padding: 5px;
   width: 250px;
@@ -44,18 +40,20 @@
   text-align: center;
 }
 
-.button-container {
+.button-container 
+{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.my-button {
+.my-button 
+{
   width: 200px;
 }
 
-.disabled-button {
+.disabled-button 
+{
   background-color: grey;
   color: #ccc;
   cursor: not-allowed;
@@ -68,8 +66,8 @@
   font-size: 18px;
 }
 
-
-.enabled-button {
+.enabled-button 
+{
   background-color: gray;
   color: white;
   cursor: pointer;
@@ -82,33 +80,30 @@
   font-size: 18px;
 }
 
-
-.text-danger {
+.text-danger 
+{
   color: crimson;
 }
 
-.nav {
+.nav 
+{
   color: black;
 }
 
-#tm-nav.navbar {
+#tm-nav.navbar 
+{
   position: fixed;
-
   top: 0;
-
   width: 100%;
-
   background-color: white;
-
   color: black;
-
   padding: 10px;
-
   z-index: 1000;
   opacity: 1;
 }
 
-.leftmost {
+.leftmost 
+{
   margin-right: auto;
   padding-left: 10px;
   color: black;
@@ -116,8 +111,8 @@
   font-size: larger;
 }
 
-
-.dropdown {
+.dropdown 
+{
   display: none;
   position: absolute;
   background-color: #333;
@@ -127,7 +122,8 @@
   transform: translateX(-50%);
 }
 
-.dropdown a {
+.dropdown a 
+{
   color: white;
   padding: 12px 16px;
   text-decoration: none;
@@ -135,12 +131,13 @@
   text-align: left;
 }
 
-li.navitem:hover .dropdown {
+li.navitem:hover .dropdown 
+{
   display: block;
 }
 
-.background-container {
-
+.background-container 
+{
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -152,7 +149,8 @@ li.navitem:hover .dropdown {
   z-index: -1;
 }
 
-.background-container::before {
+.background-container::before 
+{
   content: "";
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
@@ -162,101 +160,77 @@ li.navitem:hover .dropdown {
   left: 0;
 }
 
-
-.heading {
+.heading 
+{
   color: rgb(3, 40, 40);
   font-size: 36px;
   font-weight: 700;
-
-
   text-align: center;
   text-shadow: 0 0 10px rgb(211, 208, 46);
 }
 
-.info1 {
+.info1 
+{
   color: rgb(7, 2, 23);
   font-family: cursive;
   font-size: large;
   font-weight: 700;
 }
 
-
-.dashboard {
-
+.dashboard 
+{
   background-color: #333;
-
   color: #fff;
-
   width: 270px;
-
   height: 100%;
-
   position: fixed;
-
   top: 2;
-
   left: 0;
-
   padding: 20px;
   opacity: 0.9;
-
 }
 
-
-
-.dashboard h2 {
-
+.dashboard h2 
+{
   margin-top: 0;
-
 }
 
-
-
-.dashboard ul {
-
+.dashboard ul 
+{
   list-style: none;
-
   padding: 0;
-
 }
 
-
-
-.dashboard li {
-
+.dashboard li 
+{
   margin-bottom: 10px;
-
 }
 
-
-
-.dashboard a {
-
+.dashboard a 
+{
   color: #fff;
-
   text-decoration: none;
-
 }
 
-
-
-.navitem1 {
+.navitem1 
+{
   text-align: center;
   cursor: pointer;
 }
 
-.sub-items {
+.sub-items 
+{
   display: none;
   list-style-type: none;
 }
 
-.navitem1:focus+.sub-items {
+.navitem1:focus+.sub-items 
+{
   display: block;
 }
 
-
-
-.input-container {
+.input-container 
+{
   text-align: center;
   border-radius: 10px;
   padding: 5px;
@@ -264,17 +238,18 @@ li.navitem:hover .dropdown {
   margin: 0 auto;
 }
 
-
-.input-container2 {
+.input-container2 
+{
   margin-left: 3rem;
 }
 
-input::placeholder {
+input::placeholder 
+{
   color: rgb(106, 103, 103);
   text-align: center;
 }
 
-body {
+body 
+{
   min-height: 100%;
 }
-

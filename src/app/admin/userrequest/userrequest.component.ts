@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserRequest } from 'src/app/module/UserRequest';
 import { UserStatus } from 'src/app/module/UserStatus';
 import { ServiceService } from 'src/app/service.service';
@@ -14,9 +15,10 @@ export class UserrequestComponent implements OnInit {
   loading: boolean = false;
   isRequested: boolean = false;
   userStatusList: UserStatus[] = [];
-  
+  userEmail: any;
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.loadUserRequest();
@@ -32,42 +34,43 @@ export class UserrequestComponent implements OnInit {
     );
   }
 
-  permitStatus(lid: string,useremail:string) 
-  {
+  permitStatus(lid: string, useremail: string) {
     console.log(lid);
     console.log(useremail);
 
-    if (this.service.hasRequestedPermit(lid)) //already permitted
+    if (this.service.hasRequestedPermit(lid, useremail)) //if block not necessary
     {
       Swal.fire({
         title: 'Already Permitted',
-        text: 'You have already permitted this license.',
+        text: 'You have already permitted this license',
         icon: 'info',
       });
-    } 
-    
-    else 
-    {
-      this.service.addUserPermit(lid,useremail).subscribe((res) => //add permit status in db
-      {
-        console.log(res);
-
-        this.service.addRequestedPermit(lid); //add permit
-        this.isRequested = true;
-
-        Swal.fire({
-          title: 'Permit Successful!',
-          text: 'License request has been permitted.',
-          icon: 'success',
-        });
+    }
+    else {
+      this.service.addUserPermit(lid, useremail).subscribe((permitAdded: boolean) => {
+        if (permitAdded) {
+          this.service.addRequestedPermit(lid, useremail); // Add permit
+          this.isRequested = true;
+          Swal.fire({
+            title: 'Permit Successful!',
+            text: 'License request has been permitted.',
+            icon: 'success',
+          });
+        }
+        else {
+          Swal.fire({
+            title: 'Already Permitted',
+            text: 'You have already permitted this license',
+            icon: 'info',
+          });
+        }
       });
     }
   }
 
-  
-  }
+}
 
- 
+
 
 
 

@@ -8,19 +8,24 @@ import { ServiceService } from 'src/app/service.service';
   templateUrl: './userstatus.component.html',
   styleUrls: ['./userstatus.component.css']
 })
-export class UserstatusComponent {
-  
+
+export class UserstatusComponent 
+{
+  notifiedEmails: Set<string> = new Set<string>();
   loading: boolean = false;
   userStatusList: UserStatus[] = [];
   
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService) 
+  {
+  }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.loadUserStatus();
   }
 
-
-  loadUserStatus() {
+  loadUserStatus() 
+  {
     this.loading = true;
     this.service.getAllUserStatus().subscribe(
       (res: UserStatus[]) => {

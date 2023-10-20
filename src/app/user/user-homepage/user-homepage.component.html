@@ -1,75 +1,55 @@
 <br>
-
 <nav id="tm-nav" class="navbar">
-
   <ul class=" text-2xl font-normal flex  md:flex-row">
-
     <img src="assets/img/prodapt.png" width="50" alt="profile picture" style="float: right;">
     <li class="leftmost">License Central</li>
     <img src="assets/img/admin1.jpg" width="50" alt="profile picture" style="float: right;">
-
   </ul>
 
-<div class="background-container"></div>
+  <div class="background-container"></div>
+  <br>
+  <ul class="navbar1">
+    <li class="navitem"><a routerLink="/userhomepage">HOME</a></li>
+    <li class="navitem"><a routerLink="/available">AVAILABLE SOFTWARES</a></li>
+    <li class="navitem"><a routerLink="/logout">LOGOUT</a></li>
+  </ul>
+  <br>
+  <p>Welcome, {{ userEmail }}</p>
+  <br>
+  <h3><u>CURRENTLY USING</u></h3>
+  <br>
 
-<br>
-    
+  <div style="overflow-y: auto; max-height: 50vh;">
+  <table class="center" style="background-color:white; margin-left: 1rem; margin-right: 1rem; border: 1px solid black;">
 
+      <tr style="background-color: rgb(235, 23, 23);">
+        <th style="width: 3%;">USER ID</th>
+        <th style="width: 1%;">SYSTEM ID</th>
+        <th style="width: 1%;">EMAIL ID</th>
+        <th style="width: 3%;">LICENSE ID</th>
+        <th style="width: 5%;">APPLICATION NAME</th>
+        <th style="width: 5%;">EXPIRY DATE</th>
+        <th style="width: 3%;">ACTION</th>
+      </tr>
 
-<ul class="navbar1">
+      <tbody style="border: 1px solid black;">
+        <tr *ngFor="let license of userStatusList">
+          <td>{{license.uid}}</td>
+          <td>{{license.sid}}</td>
+          <td>{{license.email}}</td>
+          <td>{{license.lid}}</td>
+          <td>{{license.sname}}</td>
+          <td>{{license.expdate}}</td>
+          <td>
+            <br>
 
-<li class="navitem"><a routerLink = "/userhomepage" >HOME</a></li>
+        <button type="button" class="btn btn-dark custom-button" style="margin-bottom: 2rem;">
+            <a [routerLink]="['/renewal', { licenseId: license.lid, sname: license.sname,uid: license.uid}]">RENEW</a></button>
 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-
-<li class="navitem"><a routerLink = "/available">AVAILABLE SOFTWARES</a></li>
-
-<li class="navitem"><a routerLink = "/logout">LOGOUT</a></li>
-</ul>
-
-<br>
-<br>
-<br>
-
-<div style = "overflow-y: auto; max-height: 80vh;">
-    <table class="center" style="background-color:white; margin-left: 1rem; margin-right: 1rem;
-   border: 1px solid black;" > 
-   
-     
-     <tr style="background-color: rgb(235, 23, 23);">
-       <th style="width: 5%;">LICENSE ID</th>
-       <th style="width: 8%;">APPLICATION NAME</th>
-       <th style="width: 8%;">APPLICATION VERSION</th>
-       <th style="width: 5%;">INSTALLATION DATE</th>
-       <th style="width: 5%;">EXPIRY DATE</th>
-       <th style="width: 5%;">ACTION</th>
-     </tr>
-   
-     
-   
-       
-     
-       <tbody style="border: 1px solid black;">
-      
-         <!-- <tr *ngFor="let license of licenseList"> -->
-       <tr>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td>
-           <br>
-           <button type="button" class="btn btn-dark custom-button" >Renew</button><br><br>
-           
-         </td>
-   
-       </tr>
-     </tbody>
-   </table>
-   </div>
-
-
-
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>

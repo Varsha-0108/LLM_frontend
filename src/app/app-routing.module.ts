@@ -8,11 +8,11 @@ import { SearchComponent } from './admin/search/search.component';
 import { UserHomepageComponent } from './user/user-homepage/user-homepage.component';
 import { AddLicenseComponent } from './admin/add-license/add-license.component';
 import { ViewLicenseComponent } from './admin/view-license/view-license.component';
-import { UsersComponent } from './admin/users/users.component';
 import { StatusComponent } from './user/status/status.component';
 import { UserstatusComponent } from './admin/userstatus/userstatus.component';
 import { UserrequestComponent } from './admin/userrequest/userrequest.component';
 import { AvailableComponent } from './user/available/available.component';
+import { RenewalComponent } from './renewal/renewal.component';
 
 const routes: Routes = [
   {
@@ -71,7 +71,14 @@ const routes: Routes = [
     path:"available",
     component:AvailableComponent
   },
-
+  { 
+    path: 'renewal',
+     component: RenewalComponent,   
+     pathMatch: 'full' 
+  },
+  { path: 'renewal/:licenseId/:sname', 
+    component: RenewalComponent 
+  },
   {
     path:"**",
     component:HomePageComponent
@@ -83,4 +90,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

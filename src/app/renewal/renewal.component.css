@@ -63,66 +63,63 @@
   background-color: #4CAF50;
 }
 
-th, td 
-{
-  border: 1.5px solid black;
-}
-
-th 
-{
-  text-align: center;
-  font-weight: bold;
-  color: white;
-}
-
-td 
-{
-  font-size: 18px;
-  text-align: center;
-  font-weight: 500;
-}
-
-.custom-button 
-{
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 4px;
-  width: 90%;
-}
-
 h3 
 {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 25px;
+  color: crimson;
+  font-weight: 800;
+}
+
+.button-container 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.my-button 
+{
+  width: 100px;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+  border: 1.5px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
+}
+
+.card-body 
+{
+  border: 2px solid #474444;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  max-width: 500px;
+  margin-left: 22rem;
 }
 
 p 
 {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 450;
-  animation: colorChange 3s infinite alternate;
 }
 
-@keyframes colorChange 
+h4 
 {
-  0% 
-  {
-    color: rgb(255, 0, 0);
-  }
-
-  50% 
-  {
-    color: rgb(199, 189, 189);
-  }
-
-  100% 
-  {
-    color: black;
-  }
+  text-align: center;
+  font-weight: 600;
+  color: crimson;
 }

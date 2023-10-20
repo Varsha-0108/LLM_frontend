@@ -11,8 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { MenuComponent } from './menu/menu.component';
 import { UserModule } from './user/user.module';
 import {HttpClientModule} from '@angular/common/http';
-
-
+import { RenewalComponent } from './renewal/renewal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,9 @@ import {HttpClientModule} from '@angular/common/http';
     HomePageComponent,
     LoginPageComponent,
     RegistrationComponent,
-    MenuComponent
+    MenuComponent,
+    RenewalComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -28,12 +29,9 @@ import {HttpClientModule} from '@angular/common/http';
    FormsModule, ReactiveFormsModule,
     AdminModule, UserModule,
     HttpClientModule,
-    
- 
-    
- 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

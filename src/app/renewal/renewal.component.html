@@ -1,0 +1,37 @@
+<br>
+
+<nav id="tm-nav" class="navbar">
+  <ul class=" text-2xl font-normal flex  md:flex-row">
+    <img src="assets/img/prodapt.png" width="50" alt="profile picture" style="float: right;">
+    <li class="leftmost">License Central</li>
+    <img src="assets/img/admin1.jpg" width="50" alt="profile picture" style="float: right;">
+  </ul>
+
+  <div class="background-container"></div>
+  <br>
+  <ul class="navbar1">
+    <li class="navitem"><a routerLink="/userhomepage">HOME</a></li>
+    <li class="navitem"><a routerLink="/available">AVAILABLE SOFTWARES</a></li>
+    <li class="navitem"><a routerLink="/logout">LOGOUT</a></li>
+  </ul>
+  <br>
+
+  <h3>LICENSE RENEWAL</h3>
+  <div class="card-body">
+    <p>
+      USER ID : {{uid}} <br>
+      LICENSE ID : {{ licenseId }} <br>
+      APPLICATION NAME : {{ sname }}
+    </p>
+    <br>
+
+    <div class="input-container2">
+      <h4>Are you sure you want to renew the license for {{sname}}?</h4>
+    </div>
+    <br>
+
+    <div class="button-container">
+      <button type="submit" class="btn btn-dark my-button" (click)="onSubmit()">Confirm</button>
+    </div>
+    <br>
+  </div>

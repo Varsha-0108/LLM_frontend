@@ -11,48 +11,52 @@ import Swal from 'sweetalert2';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
-export class LoginPageComponent {
+
+export class LoginPageComponent 
+{
   loginForm: FormGroup = new FormGroup({
-    email:new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required])
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
   });
-  
-
-  errorMessage: string='';
+  errorMessage: string = '';
   link: string = '/register'
-  constructor(private router: Router, public service:ServiceService) {
-
+  
+  constructor(private router: Router, public service: ServiceService) 
+  {
   }
 
-  clearFields()
+  clearFields() 
   {
     this.loginForm.get('email')?.setValue('');
     this.loginForm.get('password')?.setValue('');
     this.loginForm.markAsUntouched();
   }
 
-  onSubmit() {
-      if(this.loginForm.value.email === "Admin@prodapt.com" && this.loginForm.value.password === "123")
-      {
-        this.router.navigateByUrl('/homepage');
-
-        
+  onSubmit() 
+  {
+    if (this.loginForm.value.email === "Admin@prodapt.com" && this.loginForm.value.password === "123") 
+    {
+      this.router.navigateByUrl('/homepage');
+    }
+    
+    else 
+    {
+      const b = {
+        'uusername': this.loginForm.value.email,
+        'password': this.loginForm.value.password
       }
-      else{
-        
-        const b = {
-          'uusername':this.loginForm.value.email,
-          'password':this.loginForm.value.password
-        }
-        console.log(b)
-        this.service.checkLogin(b).subscribe(
-          res=>{console.log(res)
-          if(res === true){
-            //storing the email in service
+      console.log(b)
+      this.service.checkLogin(b).subscribe(
+        res => {
+          console.log(res)
+          if (res === true) 
+          {
             this.service.useremail = b.uusername;
             this.router.navigate(['/userhomepage']);
           }
-          else{
+          
+          else 
+          {
             Swal.fire({
               title: "Enter correct credentials",
               icon: "error",
@@ -60,16 +64,10 @@ export class LoginPageComponent {
             }).then(() => {
               this.clearFields();
               this.router.navigate(['login'])
-    
             })
-
           }
         }
-        )
-      }
-      
-   
+      )
     }
-
   }
-
+}

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserRequest } from 'src/app/module/UserRequest';
 import { ServiceService } from 'src/app/service.service';
 import Swal from 'sweetalert2';
 
@@ -13,12 +15,13 @@ export class AvailableComponent
   @Input() installedLicense: string | null | undefined;
   licenceList: any;
   isRequested: boolean = false;
-
+ 
   constructor(private service: ServiceService) 
   {
     this.service.viewlicense().subscribe((pro) => this.licenceList = pro);
   }
 
+ 
   requestLicense(lid: string) 
   {
     console.log(lid);
@@ -50,5 +53,5 @@ export class AvailableComponent
       });
     }
   }
-}
 
+}

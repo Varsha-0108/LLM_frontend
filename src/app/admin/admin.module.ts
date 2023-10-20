@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AdminRoutingModule } from './admin-routing.module';
 import { AddLicenseComponent } from './add-license/add-license.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -11,8 +10,6 @@ import { UsersComponent } from './users/users.component';
 import { UserstatusComponent } from './userstatus/userstatus.component';
 import { UserrequestComponent } from './userrequest/userrequest.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [
@@ -29,9 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-   
-   
-    
   ],
   exports: [
     AdminHomeComponent

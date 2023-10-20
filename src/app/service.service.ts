@@ -2,39 +2,38 @@ import { Injectable } from '@angular/core';
 import { License } from './module/license';
 import { license } from './module/licenseList';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { Registration } from './module/registration';
 import { UserRequest } from './module/UserRequest';
 import { UserStatus } from './module/UserStatus';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
-
-
+export class ServiceService 
+{
+checkTruncateStatus() {
+  throw new Error('Method not implemented.');
+}
 
 private islogin:boolean = false;
 private errorMessage: string = '';
 private licenseList: License[] = license;
+useremail : string ='';
+private requestedLicenses: Set<string> = new Set<string>();
+private permittedUsers: Map<string, Set<string>> = new Map();
+private permittedLicenses: Map<string, Set<string>> = new Map();
  
 private url : string = 'http://localhost:8181'
 
-useremail : string ='';
-
-  private requestedLicenses: Set<string> = new Set<string>();
-
-  private permittedUsers : Set<string> = new Set<string>();
-
-constructor(public http:HttpClient) { 
+constructor(public http:HttpClient) 
+{ 
   this.licenseList = license;
 }
- 
 
 //Admin - Add license
-addLicense(license:License){
+addLicense(license:License)
+{
   return this.http.post<string>(`${this.url}/addlicense`,license);
 }
 
@@ -52,7 +51,8 @@ deleteproduct(lid:string)
 }
 
 //Registration
-registerUser(registration:Registration){
+registerUser(registration:Registration)
+{
   console.log(registration);
   return this.http.post<string>(`${this.url}/registeruser`,registration);
 }
@@ -64,12 +64,15 @@ checkExisting(uemail:string)
 }
 
 //Check login credentials
-checkLogin(body:any):Observable<Boolean>{
+checkLogin(body:any):Observable<Boolean>
+{
   return this.http.post<Boolean>(`${this.url}/loginCheck`,body);
 }
 
-// add user request in db-------------------------------------------
-addUserRequest(lid:string,email:string):Observable<Boolean>{
+//-------------------------------------------------------------------------------------------
+//User Request
+addUserRequest(lid:string,email:string):Observable<Boolean>
+{
   const data = {
     'lid':lid,
     'email':email
@@ -78,48 +81,88 @@ addUserRequest(lid:string,email:string):Observable<Boolean>{
   return this.http.post<Boolean>(`${this.url}/addUserRequest`,data)
 }
 
-getAllUserRequest():Observable<UserRequest[]> {
+getAllUserRequest():Observable<UserRequest[]> 
+{
   return this.http.get<UserRequest[]>(`${this.url}/getAllUserRequest`)
 }
 
-
-addRequestedLicense(lid: string) {
+addRequestedLicense(lid: string) 
+{
   this.requestedLicenses.add(lid);
 }
 
-hasRequestedLicense(lid: string): boolean {
+hasRequestedLicense(lid: string): boolean 
+{
   return this.requestedLicenses.has(lid);
 }
 
-//-----------------------------------------------------------------------
-
-addUserPermit(lid:string,email:string):Observable<Boolean>{
+//-------------------------------------------------------------------------------------------
+//User Status
+addUserPermit(lid:string,email:string):Observable<boolean>
+{
   const data = {
     'lid':lid,
     'email':email
   }
 
-  return this.http.post<Boolean>(`${this.url}/add`,data)
+  return this.http.post<boolean>(`${this.url}/add`,data)
 }
 
-getAllUserStatus():Observable<UserStatus[]> {
+getAllUserStatus():Observable<UserStatus[]> 
+{
   return this.http.get<UserStatus[]>(`${this.url}/all`)
 }
 
+getUserStatus(email : string):Observable<UserStatus[]> 
+{
+  const body ={
+    "email":email
+  }
 
-addRequestedPermit(lid: string) {
-  this.permittedUsers.add(lid);
+  return this.http.post<UserStatus[]>(`${this.url}/singleUser`,body)
 }
 
-hasRequestedPermit(lid: string): boolean {
-  return this.permittedUsers.has(lid);
+addRequestedPermit(lid: string, useremail: string) 
+{
+  const key = `${lid}_${useremail}`;
+  if (!this.permittedUsers.has(key)) 
+  {
+    this.permittedUsers.set(key, new Set());
+  }
+  const setForKey = this.permittedUsers.get(key);
+  return setForKey !== undefined && setForKey.has(lid);
 }
 
-//-------------------------------------------------
+hasRequestedPermit(lid: string, useremail: string): boolean 
+{
+  const key = `${lid}_${useremail}`;
+  const setForKey = this.permittedUsers.get(key);
+  return setForKey !== undefined && setForKey.has(lid);
+}
 
+//-------------------------------------------------------------------------------------------
+//Email 
+notify(email:string)
+{
+  const data = {
+    'email':email
+  }
+  return this.http.post<Boolean>(`${this.url}/notify`,data)
+}
 
+//-------------------------------------------------------------------------------------------
+//To update expity after renewing
+updateExpiry(body:any):Observable<any>
+{
+  return this.http.post<any>(`${this.url}/updateExpiry`,body)
+}
 
+//--------------------------------------------------------------------------------------------
+getGraphData() {
+  return this.http.get<any>(`${this.url}/graph-data`);
+}
 
+//--------------------------------------------------------------------------------------------
 }
 
 
